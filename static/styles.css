@@ -1,0 +1,188 @@
+html, body{
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.container{
+    align-items: center;
+
+ 
+}
+
+.content{
+    flex: 1 0 auto;
+}
+
+footer {
+    width: 100%; /* Ensures full width */
+    padding: 20px 0; /* Space around the content */
+    text-align: center; /* Center-align text */
+    font-size: 14px; /* Smaller font size for the footer */
+    position: relative; /* Allows positioning of child elements if needed */
+    left: 0; /* Align to the left */
+    bottom: 0; /* Stick to the bottom if desired */
+    flex-shrink: 0;
+}
+
+.product_image{
+
+    width:100%;
+    height: auto;
+    max-width:50vw ;
+    height: auto;
+    border-radius: 2%;
+}
+
+.submit{
+    text-align: center;
+}
+
+.my-btn-con{
+    text-align: center;
+    text-align-last: center;
+}
+
+.con{
+    padding-left: 20vw ;
+    padding-right: 20vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    background-color: rgb(226, 231, 236);
+    border-radius: 0.75rem;
+}
+.login{
+    width:fit-content !important; 
+    height: auto  !important;
+}
+
+.heading{
+    text-align: center;
+    align-self: center;
+}
+
+.product-image{
+    width:100%;
+    height: 100%;
+    border-color: black;
+}
+
+.header {
+    padding-left:0vh !important;
+    padding-right: 0vh !important;
+    background-color: #ebecec;
+    padding: 1rem;
+    margin-bottom: 8vh;
+
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.nav-link {
+    margin-left: 1rem;
+}
+.logo{
+    width: 15vh !important;
+    height: auto !important;
+}
+
+.carousel{
+    margin-top:-8vh;
+    margin-bottom: 5vh;
+}
+
+.header-con{
+    color:black !important;
+
+}
+
+
+.conprof{
+    padding: 4vw !important;
+    margin:2vw;
+    background-color: rgb(242, 242, 242);
+    border-radius: 0.75rem;
+    margin-top: -4vh;
+
+}
+
+.prod-con{
+    background-color: #dcddde;  
+}
+
+.cart-image{
+    width: auto;
+    height: 25vh;
+    border-radius: 0.75rem;
+}
+
+#cart-name{
+    margin-left: 1vw;
+}
+
+.cart{
+    padding: 2%;
+    border:2px solid rgb(233, 233, 233);  
+    
+}
+
+.subtotal{
+    padding: 1rem;
+    padding-bottom: -1rem;
+    border-radius: 0.75rem;
+    background-color: #f1f1f1;
+}
+
+.quan-box{
+    width:7vw;
+}
+
+.Checkout{
+    border-color: #dcddde;
+    margin-bottom: -6vh !important;
+    width: 100% !important;
+}
+
+.cart-con{
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
+
+
+footer{
+    margin-top:10vh;}
+
+hr {
+    border: none;
+    height: 2px;          /* Thickness of the line */
+    background-color: #333; /* Line color */
+    width: 100%;            /* Line width */
+    margin: 20px 0;        /* Space around the line */
+}
+
+#nav{
+    margin-top: 2vh;
+    margin-inline-start: -1px;
+    
+}
+.caption-left {
+    position: absolute;
+    padding: 4%;
+    left:8%; /* Push the text to the right side */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Align vertically centered */
+    text-align: right; /* Align text to the right */
+    color: white; /* Ensure text color is readable */
+}
+
+.category-image{
+    
+          height: 80vh;
+          background-size: cover; 
+          background-position: center; 
+          background-repeat: no-repeat; 
+          padding: 8vh;
+}
