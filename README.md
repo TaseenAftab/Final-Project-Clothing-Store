@@ -14,14 +14,11 @@ Technologies used:
 The idea behind this web application is simple: there is an e-commerce store called Taseen's store and on this store there are three types of products that are available, which are:
 1. Sneakers
 2. Shirts
-3. Pants.
+3. Pants
+
 Now not only can viewers view these products, they can also register, login, add those items to their carts and then place their orders, basically simulating an actual e-commerce store. You will first of all be asked to register. You can add a username and you will have to add password twice in order to register. The criteria for password and username both is at least 8 characters, if this criteria is met the password will be encoded with werkzeug.security.  Once you have successfully registered, you can go on to login. 
 Once you have logged in, you can add products to your card and you can also view your profile. In your profile, you can add your contact number and your house address and there is also an option to change your password.
-If you go into the product categories, you can add products that are given which include:
-- Shirts
-- Pants
-- Sneakers
-You can add products to your cart directly from categories or you can go into further detail on the products from the individual product pages and you can add to cart from there. 
+If you go into the product categories, You can add products to your cart directly from categories or you can go into further detail on the products from the individual product pages and you can add to cart from there. 
 In your cart, you can change the quantities of each products. You can choose to totally remove an item or increase their quantity. After which you can proceed to checkout and be given a subtotal. Following which your order can be placed.
 
 ### Pages/Files used
