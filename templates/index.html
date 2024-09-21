@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+    <div id="carouselExampleRide" class="carousel slide d-none d-md-block" data-bs-ride="carousel"  >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="static/images/static2.png" class="d-block w-100" alt="...">
+            <div class="caption-left " style="color: black;" >
+              <h3 style="color: black;">Check out our new Shirts collection!</h>
+              <h5 style="padding-left: 2vw;">This is the first slide's description.</h5>
+          </div>  
+          </div>
+          <div class="carousel-item">
+            <img src="static/images/static1.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="static/images/static3.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+
+
+<div class="container justify-content-center ">
+  <div class="row g-4 ">
+    <div class=" justify-content-center overflow-hidden" >
+    <h1>Categories:</h1><br>
+  </div>
+        {% for category in categories %}
+        {% if category.tag!='40% Off' %}
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-10 justify-content-center overflow-hidden" >
+          <div class="category-image" style="background-image: url('static/images/{{category.tag}}.jpg') ;">
+            <div style="height: fit-content; width: fit-content; padding: 2vh; background-color: white; border-radius: 0.75rem;">
+            <h5 ><a href="{{ url_for('show_category', category=category.tag) }}" class="text-decoration-none text-dark">{{ category.tag }}</a></h5>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+  </div>
+</div>
+{% endblock %}

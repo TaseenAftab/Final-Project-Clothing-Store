@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ category }}{% endblock %}
+
+{% block content %}
+<div class="container justify-content-center align-items-center ">
+
+    <h1>{{ category }}</h1>
+    <br>
+    <div class="row g-4">
+
+        {% for item in items %}
+
+            <div class="col-lg-3 col-md-5 col-sm-12 col-xs-10 justify-content-center overflow-hidden">
+                <div class=" prod-con align align-items-center">
+                    <a href="{{ url_for('show_item', category=category, item=item.name) }}">
+                <img src="static/images/{{item.id}}.jpg" class="product-image" class="img-fluid">
+                    </a>
+                    <form action="/cart" method="post">
+                        <input type="hidden" name="product_id" value= "{{ item.id }}" >
+                        <input type="hidden" name="quantity" min="1" value="1">
+                        <input type="hidden" name="updatecheck" value= "0" >
+                        <button type="submit" class="btn " style="width: 100%; border-top-left-radius: 0rem;border-top-right-radius: 0rem; background-color: #212529d5; color: whitesmoke; ;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16" style="margin-bottom:1vh ;">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                              </svg> Add to Cart
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-5 col-sm-12 col-xs-10 justify-content-center overflow-hidden">
+                <div class=" prod-con align align-items-center">
+                    <a href="{{ url_for('show_item', category=category, item=item.name) }}">
+                        <img src="static/images/{{item.id}}.jpg" class="product-image" class="img-fluid">
+                    </a>
+                    <form action="/cart" method="post">
+                        <input type="hidden" name="product_id" value= "{{ item.id }}" >
+                        <input type="hidden" name="quantity" min="1" value="1">
+                        <input type="hidden" name="updatecheck" value= "0" >
+                        <button type="submit" class="btn " style="width: 100%; border-top-left-radius: 0rem;border-top-right-radius: 0rem; background-color: #212529d5; color: whitesmoke; ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16" style="margin-bottom:1vh ;">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                              </svg> Add to Cart
+                        </button>
+                    </form>
+
+                
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+
+
+</div>
+{% endblock %}

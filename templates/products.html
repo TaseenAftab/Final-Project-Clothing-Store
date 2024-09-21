@@ -1,0 +1,101 @@
+<!-- TODO:
+    -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Sidebar toggle button (visible on mobile) -->
+    <button class="btn btn-primary d-md-none mb-3" type="button" data-toggle="collapse" data-target="#sidebarFilters" aria-expanded="false" aria-controls="sidebarFilters">
+        Filter Products
+    </button>
+
+    <!-- Sidebar for filters -->
+    <aside class="col-md-3">
+        <div class="collapse d-md-block p-3 bg-light rounded" id="sidebarFilters">
+            <h5>Filter by Category</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><a href="#">Category 1</a></li>
+                <li class="list-group-item"><a href="#">Category 2</a></li>
+                <li class="list-group-item"><a href="#">Category 3</a></li>
+                <li class="list-group-item"><a href="#">Category 4</a></li>
+            </ul>
+
+            <h5>Filter by Price</h5>
+            <form>
+                <div class="form-group">
+                    <label for="minPrice">Min Price</label>
+                    <input type="number" class="form-control" id="minPrice" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="maxPrice">Max Price</label>
+                    <input type="number" class="form-control" id="maxPrice" placeholder="1000">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Apply</button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- Main content area for products -->
+    <main class="col-md-9">
+        <div class="row">
+            <!-- Example product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Category: Category 1</p>
+                        <p class="card-text">Price: $49.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Category: Category 2</p>
+                        <p class="card-text">Price: $59.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 3</h5>
+                        <p class="card-text">Category: Category 3</p>
+                        <p class="card-text">Price: $39.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more products as needed -->
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+</div>
+{% endblock %}
+    

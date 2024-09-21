@@ -1,0 +1,67 @@
+{% extends "layout.html"%}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container-fluid ">
+<div class=" conprof ">
+    <h1>Profile:</h1>
+    <div class="d-flex justify-content-between  py-4">
+        <div class="row">
+        <div class="col-sm-12">
+    <h5>Username: {{username}}</h5>
+        </div>
+    {% if con_check==0 %}
+    
+        <h5>No Contact Number added.</h5>
+           
+    {% elif con_check==1 %}
+    
+    <h5> Contact number: 0{{contact}}</h5>
+    </div>
+    </div>
+    <br>
+        <h4>Update Contact Number:</h4> 
+    {% endif %}
+    
+    <br>
+    <form action="/profile" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control w-auto" name="contact" placeholder="Enter your contact number" type="tel">
+        <input type="hidden" name="reqcheck" value= "con" >
+    </div>
+    <button class="btn btn-primary" type="submit">Submit Contact Number</button>
+    </form>
+    <br><br>
+    {% if add_check==0%}
+    <h5>Address:</h5>    
+    {% elif add_check==1 %}
+    <h5> Address is: {{address}}.</h5>
+    <h4>Update Address:</h4>
+    {% endif %} 
+    <form action="/profile" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control w-auto" name="address" placeholder="Enter your house address." type="text">
+        <input type="hidden" name="reqcheck" value= "add" >
+    </div>
+    <button class="btn btn-primary" type="submit">Submit Address</button> 
+    </form>
+    
+    <br><br>
+
+    <div>
+        <h4>Change Password</h4>
+        <form action="/profile" method="post">
+        <div class="mb-3">
+            <input class="form-control w-auto" name="old_password" placeholder="Old Password" type="password">
+            <input type="hidden" name="reqcheck" value= "pass" >
+        </div>
+        <div class="mb-3">
+            <input class="form-control w-auto" name="new_password" placeholder="New Password " type="password">
+            <input type="hidden" name="reqcheck" value= "pass" >
+        </div>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+    </div>
+    </div>
+</div>  
+{% endblock %}

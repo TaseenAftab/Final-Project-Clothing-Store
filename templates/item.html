@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-left: 0vw !important; padding-right: 0vw !important;" >
+<div class="row gy-5">
+<div class="col-lg-4 col-md-7 col-sm-12 col-xs-12 justify-content-center overflow-hidden" style="padding-left: 0vw !important; padding-right: 0vw !important;">
+    <img src="/static/images/{{ item.id }}.jpg"  class="img-fluid ">
+</div>
+    <br>
+    <br>
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12  overflow-hidden" style="padding-left: 8vw !important; padding-right: 8vw !important;" >
+    <h5><a href="/" class="link-secondary ">Home</a> / <a href="{{ url_for('show_category', category=category) }}" class=" link-secondary">{{ category }}</a></h5>
+
+    <h1>{{ item.name |capitalize}}</h1>
+    <h6>Price: {{item.price | usd}}</h6>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nulla facilisi. Sed tincidunt velit sit amet massa pretium, at condimentum sapien varius. In hac habitasse platea dictumst. Etiam euismod, justo ac egestas lacinia, turpis dui viverra purus, nec malesuada sapien libero nec justo. Suspendisse nec felis ut velit vehicula commodo. Morbi vitae dolor eget augue sodales hendrerit.Mauris fermentum dui vel diam vehicula, sit amet egestas nulla malesuada. Aenean gravida arcu quis felis dapibus, nec suscipit libero consequat. Integer bibendum nunc quis ligula tempor, at eleifend quam malesuada. Nulla luctus magna vel ligula tincidunt, sed dignissim mi egestas. Cras lo</p>
+    <hr>
+    <div>
+
+    
+    <h5> Add To Cart:</h5>
+    <form action="/cart" method="post">
+        <input type="hidden" name="product_id" value= "{{ item.id }}" >
+        <input type="number" name="quantity" min="1" value="1">
+        <input type="hidden" name="updatecheck" value= "0" >
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+    </form>
+    <hr>
+    
+</div>
+</div>
+</div>
+{% endblock %}

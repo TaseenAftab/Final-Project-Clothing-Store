@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}Cart{% endblock %} 
+
+{% block content %}
+
+<div class="container-fluid cart-con table-responsive" >
+    {% if cartitems | length == 0 %}
+    <h4 style="padding-left: 5vw;"> Add Items to Cart!</h4>
+    <h5 style="padding-left: 5vw;"> Your cart is currently empty check our products and add them from there.</h5>
+    {% elif cartitems | length> 0 %}
+
+    <div class="row g-4">
+        <div class="col-md-8 col-sm-12">
+        <h1 style="padding-left:4vh ;">Cart:</h1>
+        <br>
+        <div class="container-fluid ">
+        
+        <table class="table table-hover table-light ">
+            <tbody>
+                <p style="padding-left:2vh" > Alert: Unless you press update quantity, it wont be updated.</p>
+                {% set ns = namespace(total=0) %}
+                {% set ns.total=0 %}
+                {% for cartitem in cartitems %}
+
+                {% if cartitem.quantity is integer %}
+                {% set ns.total = ns.total + (cartitem.price * cartitem.quantity) %}
+                {% endif%}
+                
+
+
+                <tr>
+                <td class="text-start  d-flex align-items-center">
+                    <div>
+                        <img src="static/images/{{cartitem.itemid}}.jpg" class="cart-image" class="img-fluid"></div>
+                    <div id="cart-name">
+                    <a href="{{ url_for('show_item', category=cartitem.category, item=cartitem.itemname) }}" class="text-decoration-none link-secondary" > {{cartitem.itemname |capitalize}} </a><br>{{cartitem.price |usd}}
+                </div>
+                </td>
+                
+                <div class="col col-md-12">
+                <td class="text-end align-middle">
+                    
+                    <form action="/cart" method="post">
+                        <input type="hidden" name="product_id" value= "{{ cartitem.itemid }}" >
+                        <input type="number"  name="quantity" class="quan-box" min="0" value="{{cartitem.quantity}}">
+                        <input type="hidden" name="updatecheck" value= "1" >
+                        <button type="submit">Update Quantity</button>
+                    </form>
+                    
+                </td>
+                </div>
+
+
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+
+
+            
+            
+        </table>
+        </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12 cart justify-content-center overflow-hidden">
+        <div class="row gy-5">
+            <table >
+            <tbody class=" flex-column justify-content-between">
+
+            <tr> <h1>Order Summary: </h1> </tr>
+            <tr>
+            <div class=" table-group-divider mt-2 ">
+                <div class="col d-flex justify-content-between mt-4 subtotal">
+                    <div><h5> Subtotal: </h5></div> <div><h5>  {{ ns.total |usd}} </h5 ></div>
+                </div>
+            </div>
+            </tr>
+            <tr>
+                 <a href="/checkout"><button class="Checkout btn btn-primary"> Proceed to Checkout </button></a>
+            </tr>
+
+            </div>
+            </tbody>
+            </table>
+                
+            
+        </div>
+    </div>
+</div>
+
+
+
+{% endif %}
+{% endblock %}

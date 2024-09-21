@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}Checkout{% endblock %} 
+
+{% block content %}
+<div class="container-fluid cart-con table-responsive" >
+    {% if cartitems | length == 0 %}
+    <h4 style="padding-left: 5vw;"> Add Items to Cart!</h4>
+    <h5 style="padding-left: 5vw;"> Your cart is currently empty check our products and add them from there.</h5>
+    {% elif cartitems | length> 0 %}
+
+    <div class="row g-4">
+        <div class="col-md-8 col-sm-12">
+        <h1 style="padding-left:4vh ;">Checkout:</h1>
+        <br>
+        <div class="container-fluid ">
+        
+        <table class="table table-hover table-light ">
+            <thead>
+                <th>
+                    <h4> Product Name:</h4>
+                </th>
+                <th>
+                    <h4>Price:</h4>
+                </th>
+                <th>
+                    <h4> Quantity:</h4>
+                </th>
+            </thead>
+
+            <tbody>
+                {% set ns = namespace(total=0) %}
+                {% set ns.total=0 %}
+                {% for cartitem in cartitems %}
+
+                {% if cartitem.quantity is integer %}
+                {% set ns.total = ns.total + (cartitem.price * cartitem.quantity) %}
+                {% endif%}
+                
+
+
+                <tr>
+                <td class="text-start  d-flex align-items-center">
+                    <div >
+                        <img src="static/images/{{cartitem.itemid}}.jpg" class="cart-image" class="img-fluid"></div>
+                    <div id="cart-name">
+                    <a href="{{ url_for('show_item', category=cartitem.category, item=cartitem.itemname) }}" > {{cartitem.itemname |capitalize}} </a><br>
+                </div>
+                </td>
+                
+                <div class="col col-md-12">
+                    <td class="align-middle">
+                    <h6>{{cartitem.price |usd}}</h6>
+                        
+                    </td>
+                    </div>
+                <div class="col col-md-12">
+                <td class="align-middle">
+                <h6>{{cartitem.quantity}}</h6>
+                    
+                </td>
+                </div>
+
+
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+
+
+            
+            
+        </table>
+        </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-12 cart justify-content-center overflow-hidden">
+        <div class="row gy-5">
+            <table >
+            <tbody class=" flex-column justify-content-between">
+
+            <tr> <h1>Order Summary: </h1> </tr>
+            <tr>
+            <div class=" table-group-divider mt-2 ">
+                <div class="col d-flex justify-content-between mt-4 subtotal">
+                    <div><h5> Subtotal: </h5></div> <div><h5>  {{ ns.total |usd}} </h5 ></div>
+                </div>
+            </div>
+            </tr>
+            <tr>
+                <div class="col d-flex justify-content-between mt-4 subtotal">
+                    <div><h5>Address:</h5><h6>{{address}}</h6></div>
+                </div>
+            </tr>
+            <tr>
+                 <a href="/order-completed"><button class="Checkout btn btn-primary"> Place Order </button></a>
+            </tr>
+
+            </div>
+            </tbody>
+            </table>
+                
+            
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
